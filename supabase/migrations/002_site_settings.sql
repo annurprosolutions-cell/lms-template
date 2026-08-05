@@ -19,3 +19,5 @@ create table if not exists public.site_settings (
                 create policy "site_settings_select_all" on public.site_settings for select using (true);
 
                 create policy "site_settings_update_admin" on public.site_settings for update using (public.is_admin()) with check (public.is_admin());
+
+                create policy "site_settings_insert_admin" on public.site_settings for insert with check (public.is_admin());
